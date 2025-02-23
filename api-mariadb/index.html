@@ -1,0 +1,32 @@
+<h2>Ajouter un utilisateur</h2>
+<form id="user-form">
+    <input type="text" id="name" placeholder="Nom" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <button type="submit">Ajouter</button>
+</form>
+
+<script>
+    document.getElementById("user-form").addEventListener("submit", async function(event) {
+        event.preventDefault(); // Empêche le rechargement de la page
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+
+        try {
+            const response = await fetch("http://localhost:3000/api/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email })
+            });
+
+            if (response.ok) {
+                alert("Utilisateur ajouté !");
+                fetchUsers(); // Recharge la liste
+            } else {
+                alert("Erreur lors de l'ajout !");
+            }
+        } catch (error) {
+            console.error("Erreur", error);
+        }
+    });
+</script>

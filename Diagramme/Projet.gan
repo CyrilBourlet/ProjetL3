@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2024-09-01" view-index="0" gantt-divider-location="351" resource-divider-location="300" version="3.2.3247" locale="fr_FR">
+    <description/>
+    <view zooming-state="default:8" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="200" order="0"/>
+        <field id="tpd4" name="Date de début" width="75" order="1"/>
+        <field id="tpd5" name="Date de fin" width="75" order="2"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="color.recent">
+            <![CDATA[#cccccc #27a0f9 #ffff33 #ff0808 #f88e0c #eff15e #43f86a #ff0000 #ff3300 #000000]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="210" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+        <date year="2024" month="10" date="1" type="WORKING_DAY" color="#000000">
+            <![CDATA[Début du projet]]>
+        </date>
+        <date year="2025" month="3" date="10" type="WORKING_DAY" color="#000000">
+            <![CDATA[Fin du projet]]>
+        </date>
+        <date year="2024" month="12" date="21" type="HOLIDAY" color="#ff0000">
+            <![CDATA[Début vacances]]>
+        </date>
+        <date year="2025" month="1" date="2" type="HOLIDAY" color="#ff0000"/>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="7" name="Phase 0 : Documentation" color="#27a0f9" meeting="false" start="2024-10-01" duration="158" complete="0" thirdDate="2024-10-07" thirdDate-constraint="0" expand="true"/>
+        <task id="0" name="Phase 1 : Planification" color="#43f86a" meeting="false" start="2024-10-10" duration="25" complete="0" thirdDate="2024-11-19" thirdDate-constraint="0" expand="true">
+            <task id="5" name="Analyser les besoins" color="#cccccc" meeting="false" start="2024-10-10" duration="15" complete="0" thirdDate="2024-11-18" thirdDate-constraint="0" expand="true"/>
+            <task id="6" name="Définir les fonctionnalités" color="#cccccc" meeting="false" start="2024-10-25" duration="10" complete="0" thirdDate="2024-10-07" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="1" name="Phase 2 : Dev. front-end" color="#ffff33" meeting="false" start="2024-11-04" duration="40" complete="0" thirdDate="2024-11-19" thirdDate-constraint="0" expand="true">
+            <task id="10" name="Créer la page d'accueil" color="#cccccc" meeting="false" start="2024-11-04" duration="15" complete="0" thirdDate="2024-09-16" thirdDate-constraint="0" expand="true"/>
+            <task id="9" name="Développer le formulaire" color="#cccccc" meeting="false" start="2024-11-19" duration="8" complete="0" thirdDate="2024-09-16" thirdDate-constraint="0" expand="true"/>
+            <task id="8" name="Interface Joueur/Organisateur" color="#cccccc" meeting="false" start="2024-11-27" duration="17" complete="0" thirdDate="2024-09-16" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="2" name="Phase 3 : Dev. back-end" color="#f88e0c" meeting="false" start="2024-12-14" duration="56" complete="0" thirdDate="2024-11-19" thirdDate-constraint="0" expand="true">
+            <task id="13" name="Conception de base de données" color="#cccccc" meeting="false" start="2024-12-14" duration="18" complete="0" thirdDate="2024-09-16" thirdDate-constraint="0" expand="true"/>
+            <task id="12" name="Intégration Formulaire/BDD" color="#cccccc" meeting="false" start="2025-01-03" duration="14" complete="0" thirdDate="2024-09-16" thirdDate-constraint="0" expand="true"/>
+            <task id="11" name="Vérifications automatiques" color="#cccccc" meeting="false" start="2025-01-17" duration="24" complete="0" thirdDate="2024-09-16" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="3" name="Phase 4 : Tests" color="#ff0808" meeting="false" start="2025-02-10" duration="23" complete="0" thirdDate="2024-11-19" thirdDate-constraint="0" expand="true">
+            <task id="14" name="Inscription des joueurs" color="#cccccc" meeting="false" start="2025-02-10" duration="13" complete="0" thirdDate="2024-09-16" thirdDate-constraint="0" expand="true"/>
+            <task id="15" name="Corriger les bugs" color="#cccccc" meeting="false" start="2025-02-23" duration="10" complete="0" thirdDate="2024-09-16" thirdDate-constraint="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>

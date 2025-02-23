@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Inscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #333333;
+        }
+        .input-group, .checkbox-group {
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .numerolicence {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .numerolicence input {
+            width: 48%;
+            padding: 8px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-row input[type="text"] {
+            width: 48%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+        .checkbox-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .table-group {
+            width: 48%;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            padding: 10px;
+        }
+        .table-group label {
+            color: #666666;
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .table-group input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulaire d'Inscription</h2>
+        <form action="#" method="post">
+            <div class="input-group">
+                <div class="numerolicence">
+                    <input type="text" id="licence" name="licence" placeholder="Numéro de licence" required>
+                </div>
+
+                <div class="form-row">
+                    <input type="text" id="nom" name="nom" placeholder="Nom" required>
+                    <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                </div>
+
+                <div class="form-row">
+                    <input type="text" id="nbpoint" name="nbpoint" placeholder="Nombre de points" required>
+                    <input type="text" id="club" name="club" placeholder="Club" required>
+                </div>
+
+                <div class="form-row">
+                    <input type="text" id="telephone" name="telephone" placeholder="Numéro de téléphone" required>
+                    <input type="text" id="email" name="email" placeholder="Adresse mail" required>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <div class="table-group">
+                    <label>Samedi :</label>
+                    <label><input type="checkbox" name="samedi[]" value="Option 1">Option 1</label>
+                    <label><input type="checkbox" name="samedi[]" value="Option 2">Option 2</label>
+                    <label><input type="checkbox" name="samedi[]" value="Option 3">Option 3</label>
+                    <label><input type="checkbox" name="samedi[]" value="Option 4">Option 4</label>
+                    <label><input type="checkbox" name="samedi[]" value="Option 5">Option 5</label>
+                    <label><input type="checkbox" name="samedi[]" value="Option 6">Option 6</label>
+                </div>
+                <div class="table-group">
+                    <label>Dimanche :</label>
+                    <label><input type="checkbox" name="dimanche[]" value="Option 1">Option 1</label>
+                    <label><input type="checkbox" name="dimanche[]" value="Option 2">Option 2</label>
+                    <label><input type="checkbox" name="dimanche[]" value="Option 3">Option 3</label>
+                    <label><input type="checkbox" name="dimanche[]" value="Option 4">Option 4</label>
+                    <label><input type="checkbox" name="dimanche[]" value="Option 5">Option 5</label>
+                    <label><input type="checkbox" name="dimanche[]" value="Option 6">Option 6</label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Envoyer</button>
+        </form>
+    </div>
+</body>
+</html>

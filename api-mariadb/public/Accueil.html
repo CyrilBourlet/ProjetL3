@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Tournois</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+        h1 {
+            color: #333;
+            margin: 0;
+        }
+        .buttons {
+            display: flex;
+            align-items: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .login-btn { background-color: #007BFF; color: white; }
+        .logout-btn { background-color: #DC3545; color: white; }
+        .filter-btn { background-color: #28A745; color: white; }
+        .add-btn { background-color: #FFC107; color: black; }
+        .add-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+        .button-container {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr {
+            cursor: pointer;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .link {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        
+        .filter-container select, .filter-container button {
+            padding: 8px;
+            font-size: 14px;
+        }
+                
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Accueil - Tournois</h1>
+        <div class="buttons">
+            <button id="login-btn" class="login-btn" onclick="window.location.href='Connexion.html'">Connexion</button>
+            <button id="logout-btn" class="logout-btn" style="display:none;" onclick="deconnexion()">Déconnexion</button>
+        </div>
+    </header>
+
+    <div class="button-container">   
+        <button id="btn-creation" class="add-btn" onclick="window.location.href='Ajout_Tournoi.html'" style="margin-left:auto;">Ajouter un tournoi</button>
+    </div>
+    <div class="filter-container">
+        <label for="sort-by">Trier par :</label>
+        <select id="sort-by">
+            <option value="id">Numéro d'ID</option>
+            <option value="name">Nom</option>
+            <option value="location">Lieu</option>
+            <option value="date">Date</option>
+        </select>
+        <button onclick="trierTournois()">Appliquer le tri</button>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Date Début</th>
+                <th>Date Fin</th>
+                <th>Lieu</th>
+                <th>Action</th> 
+            </tr>
+        </thead>
+        <tbody id="tournoi-list">
+            <!-- Les tournois seront affichés ici -->
+        </tbody>
+    </table>
+
+    <script>
+        async function chargerTournois() {
+            try {
+                const response = await fetch('http://localhost:3000/api/tournois');
+                const data = await response.json();
+                
+                tournoisData = data; // Stocke les données originales
+                afficherTournois(data); // Affiche tous les tournois
+            } catch (error) {
+                console.error("Erreur de chargement :", error);
+            }
+        }
+    
+        function afficherTournois(tournois) {
+            const tableBody = document.getElementById("tournoi-list");
+            tableBody.innerHTML = ""; // Vider la table avant d'ajouter des données
+    
+            tournois.forEach(tournoi => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${tournoi.id_tournoi}</td>
+                    <td>${tournoi.nom_tournoi}</td>
+                    <td>${tournoi.datedebut_tournoi}</td>
+                    <td>${tournoi.datefin_tournoi}</td>
+                    <td>${tournoi.lieu_tournoi}</td>
+                    <td>
+                        <a href="Inscrits.html?id=${tournoi.id_tournoi}" class="link">Voir les inscrits</a>
+                    </td>
+                `;
+                row.addEventListener("click", () => {
+                    window.location.href = `Formulaire.html?id=${tournoi.id_tournoi}`;
+                });
+                tableBody.appendChild(row);
+            });
+        }
+    
+        function trierTournois() {
+            const sortBy = document.getElementById("sort-by").value;
+    
+            const sortedTournois = [...tournoisData].sort((a, b) => {
+                if (sortBy === "id") {
+                    return a.id_tournoi - b.id_tournoi; // Tri numérique croissant
+                }
+                if (sortBy === "name") {
+                    return a.nom_tournoi.localeCompare(b.nom_tournoi); // Tri alphabétique
+                }
+                if (sortBy === "location") {
+                    return a.lieu_tournoi.localeCompare(b.lieu_tournoi); // Tri alphabétique
+                }
+                if (sortBy === "date") {
+                    return new Date(a.datedebut_tournoi) - new Date(b.datedebut_tournoi); // Tri par date croissante
+                }
+            });
+    
+            afficherTournois(sortedTournois);
+        }
+    
+        function gererBoutonCreation() {
+            const estOrganisateur = localStorage.getItem("est_organisateur");
+            const boutonCreation = document.getElementById("btn-creation");
+            const loginBtn = document.getElementById("login-btn");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            if (estOrganisateur !== null) {
+                loginBtn.style.display = "none";
+                logoutBtn.style.display = "block";
+            }
+
+            if (estOrganisateur === "0") {
+                boutonCreation.disabled = true;
+            }
+        }
+
+        function deconnexion() {
+            localStorage.removeItem("est_organisateur");
+            window.location.href = "Accueil.html";
+        }
+
+        window.onload = function() {
+            chargerTournois();
+            gererBoutonCreation();
+        };
+        
+    </script>
+
+</body>
+</html>

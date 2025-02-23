@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Tournoi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            width: 50%;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .series-container {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Créer un Nouveau Tournoi</h1>
+    <form id="tournoi-form">
+        <label for="nom">Nom du Tournoi :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="date-debut">Date de Début :</label>
+        <input type="date" id="date-debut" name="date-debut" required>
+
+        <label for="date-fin">Date de Fin :</label>
+        <input type="date" id="date-fin" name="date-fin" required>
+
+        <label for="lieu">Lieu :</label>
+        <input type="text" id="lieu" name="lieu" required>
+
+        <label for="nb-series">Nombre de Séries :</label>
+        <input type="number" id="nb-series" name="nb-series" min="1" max="10" required>
+
+        <div class="series-container" id="series-selection">
+            <!-- Les listes déroulantes de séries seront générées ici -->
+        </div>
+
+        <button id="btn-creation" onclick="window.location.href='Ajout_Tournoi.html'">Créer un tournoi</button>
+
+    </form>
+
+    <script>
+        let seriesDisponibles = [];
+
+        // Charger les séries disponibles depuis l'API
+        async function chargerSeries() {
+            try {
+                const response = await fetch('http://localhost:3000/api/series');
+                seriesDisponibles = await response.json();
+            } catch (error) {
+                console.error("❌ Erreur lors du chargement des séries :", error);
+            }
+        }
+
+        // Mettre à jour la sélection de séries
+        function mettreAJourSelection() {
+            const nbSeries = parseInt(document.getElementById("nb-series").value);
+            const container = document.getElementById("series-selection");
+
+            container.innerHTML = ""; // Vider la sélection actuelle
+
+            for (let i = 0; i < nbSeries; i++) {
+                const label = document.createElement("label");
+                label.innerText = `Sélectionnez la série ${i + 1} :`;
+
+                const select = document.createElement("select");
+                select.name = "series";
+                select.required = true;
+
+                // Ajouter les options à la liste déroulante
+                seriesDisponibles.forEach(serie => {
+                    const option = document.createElement("option");
+                    option.value = serie.id_serie;
+                    option.innerText = serie.nom_serie;
+                    select.appendChild(option);
+                });
+
+                container.appendChild(label);
+                container.appendChild(select);
+            }
+        }
+
+        document.getElementById("nb-series").addEventListener("change", mettreAJourSelection);
+
+        document.getElementById("tournoi-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const nom = document.getElementById("nom").value;
+            const dateDebut = document.getElementById("date-debut").value;
+            const dateFin = document.getElementById("date-fin").value;
+            const lieu = document.getElementById("lieu").value;
+
+            const seriesSelectionnees = [...document.querySelectorAll('select[name="series"]')]
+                                        .map(select => select.value);
+
+            const tournoiData = { nom, dateDebut, dateFin, lieu, series: seriesSelectionnees };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/tournois', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(tournoiData)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Tournoi créé avec succès !");
+                    window.location.href = "index.html";
+                } else {
+                    alert("Erreur : " + result.error);
+                }
+            } catch (error) {
+                console.error("❌ Erreur lors de la création du tournoi :", error);
+            }
+        });
+
+        window.onload = chargerSeries;
+    </script>
+
+</body>
+</html>

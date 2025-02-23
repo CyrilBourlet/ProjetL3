@@ -1,0 +1,115 @@
+<mxfile host="Electron" modified="2024-10-15T13:10:47.474Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.0 Chrome/114.0.5735.289 Electron/25.8.3 Safari/537.36" etag="XI4SnVlUg6w1oA6yNuwR" version="22.0.0" type="device">
+  <diagram name="Page-1" id="DSmIe4zmm-hFYy10M3N4">
+    <mxGraphModel dx="1592" dy="876" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="164" y="10" width="500" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-2" value="Organisateur" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-4" value="Système" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="740" y="360" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-5" value="Joueur" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="480" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-19" value="Créer un tournoi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="40" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-20" value="Générer un formulaire" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="70" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-22" value="Consulter la liste des inscrits" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="170" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-23" value="Modifier les informations du tournoi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="254" y="260" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-24" value="S&#39;incrire au tournoi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="360" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-25" value="Envoyer l&#39;inscription" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="450" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-27" value="Confirmer l&#39;inscription" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="540" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-28" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-2" target="Vdv_MiD-VBsimtEWcE3e-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="420" as="sourcePoint" />
+            <mxPoint x="680" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-29" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-2" target="Vdv_MiD-VBsimtEWcE3e-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="230" as="sourcePoint" />
+            <mxPoint x="310" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-30" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-2" target="Vdv_MiD-VBsimtEWcE3e-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="430" as="sourcePoint" />
+            <mxPoint x="690" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-31" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-2" target="Vdv_MiD-VBsimtEWcE3e-23">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="440" as="sourcePoint" />
+            <mxPoint x="700" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-32" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-25" target="Vdv_MiD-VBsimtEWcE3e-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="660" y="450" as="sourcePoint" />
+            <mxPoint x="710" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-33" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-5" target="Vdv_MiD-VBsimtEWcE3e-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="460" as="sourcePoint" />
+            <mxPoint x="720" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-34" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-5" target="Vdv_MiD-VBsimtEWcE3e-27">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="420" as="sourcePoint" />
+            <mxPoint x="680" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-35" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-4" target="Vdv_MiD-VBsimtEWcE3e-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="420" as="sourcePoint" />
+            <mxPoint x="680" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-36" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-27" target="Vdv_MiD-VBsimtEWcE3e-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="60" y="400" as="sourcePoint" />
+            <mxPoint x="110" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-37" value="Enregistrer les inscriptions" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="550" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-38" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-37" target="Vdv_MiD-VBsimtEWcE3e-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="420" as="sourcePoint" />
+            <mxPoint x="680" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-39" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="Vdv_MiD-VBsimtEWcE3e-40" target="Vdv_MiD-VBsimtEWcE3e-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="420" as="sourcePoint" />
+            <mxPoint x="680" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vdv_MiD-VBsimtEWcE3e-40" value="Mettre à jour les inscrits" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="660" width="160" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

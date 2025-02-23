@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Inscrits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Liste des Inscrits</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Licence</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Club</th>
+            </tr>
+        </thead>
+        <tbody id="inscrits-list">
+            <!-- Les inscrits seront affichés ici -->
+        </tbody>
+    </table>
+
+    <script>
+        async function chargerInscrits() {
+            const params = new URLSearchParams(window.location.search);
+            const tournoiId = params.get("id");
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/inscrits?id=${tournoiId}`);
+                const data = await response.json();
+
+                const tableBody = document.getElementById("inscrits-list");
+                tableBody.innerHTML = "";
+
+                data.forEach(inscrit => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${inscrit.licence_joueur}</td>
+                        <td>${inscrit.nom_joueur}</td>
+                        <td>${inscrit.prenom_joueur}</td>
+                        <td>${inscrit.club_joueur}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Erreur de chargement :", error);
+            }
+        }
+
+        window.onload = chargerInscrits;
+    </script>
+
+</body>
+</html>
