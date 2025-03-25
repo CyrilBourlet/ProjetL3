@@ -1,0 +1,71 @@
+/* Corps de la page */
+body {
+    font-family: Arial, sans-serif;  /* Police simple et lisible pour le texte */
+    text-align: center;               /* Centre le contenu horizontalement */
+    margin: 0;                        /* Supprime la marge par défaut du navigateur */
+    padding: 20px;                   /* Ajoute un peu d'espace intérieur autour du contenu */
+    background-color: #121212;        /* Fond noir doux, style "dark mode" */
+    color: #f1f1f1;                  /* Couleur de texte claire pour contraster avec le fond sombre */
+}
+
+/* Conteneur du formulaire de connexion */
+form {
+    background-color: #1f1f1f;       /* Fond légèrement plus clair que le fond du body */
+    padding: 20px;                   /* Espacement intérieur pour aérer le contenu du formulaire */
+    width: 300px;                    /* Largeur fixe du formulaire */
+    margin: auto;                    /* Centre le formulaire horizontalement dans la page */
+    border-radius: 10px;             /* Coins arrondis pour un look moderne */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Ombre pour donner du relief au formulaire */
+}
+
+/* Style des labels pour les champs email et mot de passe */
+label {
+    display: block;                  /* Les labels occupent toute la largeur */
+    text-align: left;                /* Aligne le texte à gauche dans le label */
+    margin-bottom: 5px;              /* Espace entre le label et l'input */
+    font-weight: bold;               /* Met le texte en gras pour plus de lisibilité */
+    color: #f1f1f1;                  /* Texte clair */
+}
+
+/* Style général des champs de saisie */
+input {
+    width: 100%;                     /* Prend toute la largeur du formulaire */
+    padding: 10px;                   /* Hauteur du champ de saisie confortable */
+    margin-bottom: 12px;             /* Espace sous chaque champ */
+    border: 1px solid #333;          /* Bordure grise foncée pour s’intégrer dans le thème sombre */
+    border-radius: 5px;              /* Coins arrondis sur le champ */
+    background-color: #2c2c2c;       /* Fond sombre pour le champ */
+    color: #f1f1f1;                  /* Texte clair à l'intérieur du champ */
+}
+
+/* Effet lors du focus sur un champ (quand l'utilisateur clique dedans) */
+input:focus {
+    outline: none;                   /* Supprime le contour bleu par défaut des navigateurs */
+    border-color: #2196f3;           /* Bordure bleue pour attirer l'attention sur le champ actif */
+    box-shadow: 0 0 5px #2196f3;     /* Petite lueur bleue autour du champ pour renforcer l'effet focus */
+}
+
+/* Bouton de connexion */
+button {
+    width: 100%;                     /* Prend toute la largeur du formulaire */
+    padding: 12px;                   /* Hauteur du bouton pour une bonne taille cliquable */
+    border: none;                    /* Pas de bordure visible */
+    background-color: #2196f3;       /* Bleu clair comme couleur principale du bouton */
+    color: white;                    /* Texte blanc pour un bon contraste */
+    font-size: 16px;                 /* Taille de texte moyenne pour la lisibilité */
+    border-radius: 5px;              /* Coins arrondis */
+    cursor: pointer;                 /* Change le curseur en main pour montrer que c'est cliquable */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation fluide pour l'interaction */
+}
+
+/* Effet au survol du bouton de connexion */
+button:hover {
+    background-color: #1976d2;       /* Bleu plus foncé pour indiquer une interaction */
+    transform: translateY(-2px);     /* Légère élévation du bouton sur le hover pour un effet dynamique */
+}
+
+/* Style pour le message d'erreur */
+.error {
+    color: #f44336;                  /* Rouge vif pour attirer l'attention sur les messages d'erreur */
+    margin-top: 10px;                /* Espace entre le bouton et le message d'erreur */
+}

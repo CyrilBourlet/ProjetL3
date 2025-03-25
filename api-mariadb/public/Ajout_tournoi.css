@@ -1,0 +1,172 @@
+/* ============================
+   Fond général et typographie
+   ============================ */
+   body {
+    font-family: 'Arial', sans-serif;      /* Police simple et lisible */
+    margin: 0;                             /* Enlève la marge par défaut */
+    padding: 20px;                         /* Espacement intérieur global */
+    background-color: #121212;             /* Fond noir doux pour un thème sombre */
+    color: #f1f1f1;                        /* Texte clair sur fond sombre */
+    text-align: center;                    /* Centre le texte par défaut */
+}
+
+/* ================================
+   Conteneur principal du formulaire
+   ================================ */
+form {
+    background-color: #1f1f1f;             /* Fond sombre du formulaire */
+    padding: 20px;                         /* Espacement intérieur dans le formulaire */
+    width: 50%;                            /* Largeur fixe, prend 50% de la largeur de la fenêtre */
+    margin: auto;                          /* Centre horizontalement le formulaire */
+    border-radius: 10px;                   /* Coins arrondis */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Ombre portée pour donner du relief */
+    text-align: left;                      /* Aligne le contenu à gauche dans le formulaire */
+}
+
+/* =======================
+   Labels dans le formulaire
+   ======================= */
+label {
+    font-weight: bold;                     /* Texte en gras pour meilleure lisibilité */
+    display: block;                        /* Affiche chaque label sur sa propre ligne */
+    margin: 10px 0 5px;                   /* Espacement au-dessus et en dessous du label */
+    color: #f1f1f1;                       /* Texte clair pour être visible sur le fond sombre */
+}
+
+/* =====================================
+   Champs de saisie et menus déroulants
+   ===================================== */
+input, select {
+    width: 100%;                          /* Prend toute la largeur disponible */
+    padding: 10px;                        /* Espacement interne pour le confort de saisie */
+    margin-bottom: 12px;                  /* Espace sous chaque champ */
+    border: 1px solid #333;               /* Bordure sombre */
+    border-radius: 5px;                   /* Coins arrondis */
+    background-color: #2c2c2c;            /* Fond sombre dans les champs */
+    color: #f1f1f1;                       /* Texte clair dans les champs */
+}
+
+/* ============================
+   Effets de focus sur les champs
+   ============================ */
+input:focus, select:focus {
+    outline: none;                        /* Supprime le contour par défaut du navigateur */
+    border-color: #2196f3;                /* Bordure bleue lors de la sélection */
+    box-shadow: 0 0 5px #2196f3;          /* Lueur bleue autour du champ actif */
+}
+
+/* ======================
+   Style général des boutons
+   ====================== */
+button {
+    padding: 12px;                        /* Hauteur du bouton */
+    border: none;                         /* Supprime la bordure par défaut */
+    background-color: #2196f3;            /* Bleu clair pour le bouton standard */
+    color: white;                         /* Texte blanc */
+    font-size: 16px;                      /* Taille de texte lisible */
+    border-radius: 5px;                   /* Coins arrondis */
+    cursor: pointer;                      /* Curseur en forme de main pour indiquer la cliquabilité */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation fluide sur hover */
+}
+
+/* ======================
+   Animation sur hover des boutons
+   ====================== */
+button:hover {
+    background-color: #1976d2;            /* Bleu un peu plus foncé au survol */
+    transform: translateY(-2px);          /* Léger déplacement vers le haut sur hover */
+}
+
+/* ==================================
+   Boutons spécifiques dans le formulaire
+   ================================== */
+form button {
+    width: 100%;                          /* Le bouton "Créer le tournoi" prend toute la largeur */
+}
+
+/* ===================
+   Bouton de retour en haut
+   =================== */
+.btn-retour {
+    position: absolute;                   /* Positionnement en haut à gauche */
+    top: 10px;
+    left: 10px;
+    padding: 10px 15px;                   /* Taille confortable */
+    font-size: 16px;
+    background-color: #2196f3;            /* Couleur bleue par défaut */
+    color: white;                         /* Texte blanc */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animation sur hover */
+}
+
+/* Hover sur le bouton retour */
+.btn-retour:hover {
+    background-color: #1976d2;            /* Bleu foncé quand on passe la souris dessus */
+}
+
+/* ==============================
+   Conteneur qui regroupe les séries
+   ============================== */
+.series-container {
+    margin-top: 10px;                     /* Espacement au-dessus du conteneur */
+}
+
+/* ==========================
+   Liste des séries sélectionnées
+   ========================== */
+.series-list {
+    list-style-type: none;                /* Supprime les puces de la liste */
+    padding: 0;                           /* Supprime le padding par défaut */
+}
+
+/* =============================
+   Chaque élément dans la liste des séries
+   ============================= */
+.series-list li {
+    background-color: #2c2c2c;            /* Fond sombre pour chaque série */
+    color: #f1f1f1;                       /* Texte clair */
+    padding: 10px;                        /* Espacement interne */
+    margin: 8px 0;                        /* Espacement entre les séries */
+    border-radius: 5px;                   /* Coins arrondis */
+    display: flex;                        /* Affichage en ligne pour le texte + bouton */
+    justify-content: space-between;       /* Espace entre le texte et le bouton "X" */
+    align-items: center;                  /* Centre verticalement les éléments */
+}
+
+/* =================================
+   Bouton pour retirer une série de la liste
+   ================================= */
+.remove-btn {
+    background-color: #e53935;            /* Rouge vif */
+    color: white;                         /* Texte blanc */
+    border: none;                         /* Pas de bordure */
+    padding: 6px 10px;                    /* Taille compacte */
+    border-radius: 3px;                   /* Coins arrondis */
+    cursor: pointer;                      /* Curseur pointeur */
+    transition: background-color 0.3s ease; /* Transition douce au survol */
+}
+
+.remove-btn:hover {
+    background-color: #c62828;            /* Rouge plus foncé au survol */
+}
+
+/* =========================
+   Bouton "Ajouter série"
+   ========================= */
+#ajout-serie {
+    width: auto;                          /* Largeur ajustée au contenu */
+    padding: 8px 15px;                    /* Taille compacte et confortable */
+    font-size: 14px;                      /* Taille de police plus petite */
+    background-color: #4caf50;            /* Vert clair */
+    color: white;                         /* Texte blanc */
+    margin-left: 10px;                    /* Petit espace à gauche */
+    border-radius: 5px;                   /* Coins arrondis */
+    cursor: pointer;                      /* Curseur pointeur */
+    transition: background-color 0.3s ease; /* Transition fluide */
+}
+
+#ajout-serie:hover {
+    background-color: #388e3c;            /* Vert foncé sur hover */
+}

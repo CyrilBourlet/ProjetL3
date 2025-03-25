@@ -1,41 +1,44 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../db'); // Connexion à la base de données
+const express = require('express'); // importe Express
+const router = express.Router();    // crée un routeur Express
+const { Joueur } = require('../models'); // importe le modèle Joueur
 
-// Route pour la connexion des utilisateurs
-router.post('/', (req, res) => {
+// Route POST : Connexion d'un utilisateur
+router.post('/', async (req, res) => {
+
+    // récupère les champs envoyés dans la requête
     const { email, password } = req.body;
 
-    const query = `
-        SELECT licence_joueur, mail_joueur, mdp_joueur, est_organisateur 
-        FROM Joueurs 
-        WHERE mail_joueur = ?;
-    `;
+    // vérifie que les champs email et mot de passe sont bien remplis
+    if (!email || !password) {
+        return res.status(400).json({ message: "Veuillez remplir tous les champs." });
+    }
 
-    db.query(query, [email], (err, results) => {
-        if (err) {
-            console.error("❌ Erreur lors de la connexion :", err);
-            res.status(500).json({ message: "Erreur serveur" });
-            return;
+    try {
+        // recherche dans la base un joueur avec l'email fourni
+        const user = await Joueur.findOne({ where: { mail_joueur: email } });
+
+        // si aucun joueur trouvé ou si le mot de passe est incorrect
+        if (!user || user.mdp_joueur !== password) {
+            return res.status(401).json({ message: "Identifiants incorrects." });
         }
 
-        if (results.length === 0) {
-            res.status(401).json({ message: "Identifiants incorrects" });
-            return;
-        }
+        // si l'utilisateur est trouvé et le mot de passe est correct, on renvoie ses infos
+        res.json({ 
+            message: "Connexion réussie", 
+            licence_joueur: user.licence_joueur || "",
+            nom_joueur: user.nom_joueur || "",
+            prenom_joueur: user.prenom_joueur || "",
+            club_joueur: user.club_joueur ? user.club_joueur : "Non renseigné",
+            point_joueur: user.point_joueur !== null ? user.point_joueur : 0,
+            tel_joueur: user.tel_joueur ? user.tel_joueur : "Non renseigné",
+            mail_joueur: user.mail_joueur ? user.mail_joueur : "Non renseigné",
+            est_organisateur: user.est_organisateur ? "true" : "false"
+        });
 
-        const user = results[0];
-
-        if (user.mdp_joueur === password) {
-            res.json({ 
-                message: "Connexion réussie", 
-                est_organisateur: user.est_organisateur 
-            });
-        } else {
-            res.status(401).json({ message: "Mot de passe incorrect" });
-        }
-    });
+    } catch (err) {
+        // si une erreur serveur survient, on retourne un message d'erreur
+        res.status(500).json({ message: "Erreur serveur" });
+    }
 });
 
-
-module.exports = router;
+module.exports = router; // exporte le routeur pour l'utiliser dans server.js

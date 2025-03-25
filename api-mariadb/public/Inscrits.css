@@ -1,0 +1,129 @@
+/* Applique une police simple et élégante à tout le site.
+   Définit une couleur de fond sombre et un texte clair. */
+   body {
+    font-family: Arial, sans-serif; /* Police générale */
+    text-align: center; /* Centre le contenu */
+    margin: 0; /* Supprime la marge par défaut du navigateur */
+    padding: 20px; /* Espacement interne */
+    background-color: #121212; /* Fond noir doux */
+    color: #f1f1f1; /* Couleur du texte en gris clair */
+}
+
+/* Table principale où sont listés les inscrits */
+table {
+    width: 80%; /* Largeur de la table */
+    margin: 20px auto; /* Centre la table horizontalement avec marges verticales */
+    border-collapse: collapse; /* Supprime les espaces entre les bordures des cellules */
+    background-color: #1e1e1e; /* Fond gris très foncé */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Ombre pour donner du relief */
+    border-radius: 8px; /* Bords arrondis */
+    overflow: hidden; /* Coupe les débordements */
+}
+
+/* Style des cellules (entêtes et données) */
+th, td {
+    padding: 12px 15px; /* Espacement intérieur */
+    border-bottom: 1px solid #333; /* Ligne de séparation */
+    text-align: center; /* Centre le texte dans les cellules */
+    color: #f1f1f1; /* Texte clair */
+}
+
+/* En-têtes du tableau */
+th {
+    background-color: #007BFF; /* Bleu principal */
+    color: white; /* Texte en blanc */
+    text-transform: uppercase; /* Texte en majuscule */
+    font-weight: bold; /* Gras */
+}
+
+/* Coloriage des lignes paires du tableau */
+tr:nth-child(even) {
+    background-color: #2c2c2c; /* Gris un peu plus clair */
+}
+
+/* Coloriage des lignes impaires du tableau */
+tr:nth-child(odd) {
+    background-color: #1e1e1e; /* Même fond que la table */
+}
+
+/* Effet au survol d'une ligne */
+tr:hover {
+    background-color: #333; /* Accentuation du gris */
+}
+
+/* Classe pour masquer un élément */
+.hidden {
+    display: none;
+}
+
+/* Conteneur des filtres */
+.filters {
+    background-color: #1e1e1e; /* Fond sombre */
+    padding: 15px; /* Espacement intérieur */
+    border: 1px solid #333; /* Bordure gris foncé */
+    border-radius: 8px; /* Bords arrondis */
+    margin: 20px auto; /* Centre et espace autour */
+    width: 80%; /* Largeur relative à l'écran */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Ombre pour effet de profondeur */
+}
+
+/* Style des sélecteurs et champs de saisie dans le bloc filtre */
+.filters select,
+.filters input {
+    display: block; /* Force à passer à la ligne */
+    width: 100%; /* Largeur maximale */
+    margin-bottom: 15px; /* Espacement sous chaque élément */
+    padding: 10px; /* Espacement intérieur */
+    background-color: #2c2c2c; /* Fond gris foncé */
+    color: #f1f1f1; /* Texte clair */
+    border: 1px solid #444; /* Bordure sombre */
+    border-radius: 5px; /* Bords arrondis */
+    transition: border-color 0.3s ease; /* Animation de transition douce */
+}
+
+/* Lorsqu'on clique dans un champ, la bordure devient bleue */
+.filters select:focus,
+.filters input:focus {
+    border-color: #007BFF;
+    outline: none; /* Supprime la bordure de focus du navigateur */
+}
+
+/* Style du bouton de filtrage */
+.filters button {
+    width: 100%; /* Largeur maximale */
+    background-color: #007BFF; /* Bleu vif */
+    color: white; /* Texte blanc */
+    border: none; /* Supprime la bordure */
+    padding: 12px; /* Hauteur du bouton */
+    border-radius: 5px; /* Bords arrondis */
+    cursor: pointer; /* Curseur main */
+    font-weight: bold; /* Texte gras */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation douce */
+}
+
+/* Animation au survol du bouton */
+.filters button:hover {
+    background-color: #0056b3; /* Bleu plus foncé */
+    transform: translateY(-2px); /* Soulève légèrement le bouton */
+}
+
+/* Bouton de retour */
+.btn-retour {
+    position: absolute; /* Position fixe en haut à gauche */
+    top: 10px; /* Décalage depuis le haut */
+    left: 10px; /* Décalage depuis la gauche */
+    padding: 10px 15px; /* Taille du bouton */
+    font-size: 16px; /* Taille de la police */
+    background-color: #2196F3; /* Bleu vif */
+    color: white; /* Texte blanc */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur main */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation douce */
+}
+
+/* Animation du bouton retour au survol */
+.btn-retour:hover {
+    background-color: #1976D2; /* Bleu plus foncé */
+    transform: translateY(-2px); /* Soulève légèrement le bouton */
+}

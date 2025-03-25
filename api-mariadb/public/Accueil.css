@@ -1,0 +1,211 @@
+/* ========================
+   Paramètres généraux du body
+   ======================== */
+   body {
+    font-family: 'Arial', sans-serif;   /* Police simple et lisible */
+    margin: 0;                          /* Enlève la marge par défaut du navigateur */
+    padding: 20px;                      /* Espacement intérieur global */
+    background-color: #121212;          /* Fond sombre général (dark mode) */
+    color: #f1f1f1;                     /* Texte clair pour contraster avec le fond */
+}
+
+/* ========================
+   En-tête (Header principal)
+   ======================== */
+header {
+    display: flex;                      /* Flexbox pour aligner les éléments horizontalement */
+    justify-content: space-between;    /* Espace entre le titre et les boutons utilisateur */
+    align-items: center;               /* Centre verticalement le contenu */
+    padding: 15px 20px;                /* Espacement interne */
+    background-color: #1f1f1f;         /* Fond légèrement plus clair que le body */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Ombre pour séparer du contenu */
+}
+
+h1 {
+    color: #ffffff;                    /* Titre blanc */
+    margin: 0;                         /* Supprime la marge par défaut */
+    font-weight: 600;                  /* Texte un peu plus épais que normal */
+}
+
+/* ========================
+   Zone informations utilisateur (connexion / déconnexion)
+   ======================== */
+.user-info {
+    display: flex;                     /* Aligne les éléments horizontalement */
+    align-items: center;               /* Centre verticalement */
+    gap: 10px;                         /* Espace entre les éléments */
+}
+
+#logout-btn, #login-btn {
+    padding: 10px 15px;               /* Espacement interne */
+    border: none;                     /* Pas de bordure */
+    border-radius: 5px;               /* Coins arrondis */
+    cursor: pointer;                  /* Curseur en forme de main au survol */
+    font-weight: bold;                /* Texte en gras */
+    transition: background-color 0.3s ease; /* Transition fluide pour le hover */
+}
+
+/* ========================
+   Bouton de connexion
+   ======================== */
+#login-btn {
+    background-color: #2196f3;        /* Bleu clair */
+    color: white;
+}
+
+#login-btn:hover {
+    background-color: #1976d2;        /* Bleu foncé au survol */
+}
+
+/* ========================
+   Bouton de déconnexion
+   ======================== */
+#logout-btn {
+    background-color: #e53935;        /* Rouge vif */
+    color: white;
+}
+
+#logout-btn:hover {
+    background-color: #c62828;        /* Rouge plus foncé au survol */
+}
+
+/* ========================
+   Boutons génériques
+   ======================== */
+button {
+    padding: 10px 20px;               /* Taille du bouton */
+    margin: 5px;                      /* Espace autour */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: 500;                 /* Texte moyen */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animations fluides */
+}
+
+button:hover {
+    transform: translateY(-2px);      /* Légère translation vers le haut au survol */
+}
+
+/* ========================
+   Bouton "Ajouter un tournoi"
+   ======================== */
+.add-btn {
+    background-color: #ff9800;        /* Orange vif */
+    color: black;
+}
+
+.add-btn:hover {
+    background-color: #fb8c00;        /* Orange plus foncé */
+}
+
+.add-btn:disabled {
+    background-color: #555;           /* Gris pour indiquer l'inactivité */
+    color: #999;
+    cursor: not-allowed;              /* Curseur interdit */
+}
+
+/* ========================
+   Bouton de filtre
+   ======================== */
+.filter-btn {
+    background-color: #4caf50;        /* Vert clair */
+    color: white;
+}
+
+.filter-btn:hover {
+    background-color: #388e3c;        /* Vert plus foncé */
+}
+
+/* ========================
+   Conteneur de boutons principaux
+   ======================== */
+.button-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;   /* Sépare les boutons à gauche et à droite */
+}
+
+/* ========================
+   Zone de filtres
+   ======================== */
+.filter-container {
+    display: flex;                    /* Affiche les filtres en ligne */
+    justify-content: center;          /* Centre les filtres */
+    gap: 10px;                        /* Espace entre les filtres */
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.filter-container select,
+.filter-container button {
+    padding: 8px;                     /* Espacement intérieur */
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;           /* Fond sombre */
+    color: #f1f1f1;                   /* Texte clair */
+}
+
+.filter-container select:focus,
+.filter-container button:focus {
+    outline: none;                    /* Supprime le contour par défaut */
+    box-shadow: 0 0 5px #2196f3;      /* Effet lumineux bleu lors de la sélection */
+}
+
+/* ========================
+   Tableau des tournois
+   ======================== */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;        /* Supprime les espaces entre les cellules */
+    background-color: #1e1e1e;        /* Fond sombre du tableau */
+    border-radius: 8px;
+    overflow: hidden;                 /* Masque tout ce qui dépasse des coins arrondis */
+    box-shadow: 0 0 10px rgba(0,0,0,0.8); /* Ombre portée */
+}
+
+/* ========================
+   Cellules d'en-tête et de contenu
+   ======================== */
+th, td {
+    padding: 12px;                    /* Espacement intérieur */
+    border: 1px solid #333;           /* Bordures sombres */
+    text-align: center;
+}
+
+th {
+    background-color: #2c2c2c;        /* En-tête de tableau plus foncé */
+    color: #ffffff;                   /* Texte blanc */
+    font-weight: bold;
+}
+
+td {
+    color: #e0e0e0;                   /* Texte gris clair pour les cellules */
+}
+
+/* ========================
+   Ligne du tableau survolée
+   ======================== */
+tr {
+    cursor: pointer;                  /* Indique que la ligne est cliquable */
+    transition: background-color 0.3s ease;
+}
+
+tr:hover {
+    background-color: #333;           /* Fond plus foncé au survol */
+}
+
+/* ========================
+   Liens dans la table
+   ======================== */
+.link {
+    color: #42a5f5;                   /* Bleu clair pour les liens */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;       /* Soulignement au survol */
+}

@@ -1,0 +1,11 @@
+{
+    "development": {
+      "username": "root",
+      "password": "A1N9n7e4=",
+      "database": "tournoidb",
+      "host": "localhost",
+      "port": 3333,
+      "dialect": "mariadb"
+    }
+  }
+  
